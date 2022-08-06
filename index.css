@@ -1,0 +1,123 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Source Sans Pro', sans-serif;
+    background-color:#F5F5F5;
+}
+
+
+
+.container {
+    width: 400px;
+    margin: 0 auto;
+    background-color: white;
+    border: 5px solid navajowhite;
+}
+
+ .post {
+    margin-bottom: 10px;
+    border-bottom: 22px solid #E5E5E5;
+    padding-bottom: 15px;
+ }
+
+ .post:last-child
+{
+    border-bottom: 0;
+}
+
+.logo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 5px solid #F5F5F5;
+    padding: 9px 10px;
+}
+
+.logo img {
+    margin:0 2px;
+}
+
+.img-logo {
+   width: 120px;
+}
+
+.user-avatar {
+    width: 40px;
+    border-radius: 100%;
+ }
+
+ .profile-section img {
+    width: 40px;
+    border-radius: 100%;
+ }
+
+ .profile-section {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    
+ }
+ .profile-info {
+    margin-left: 9px;
+ }
+
+ .profile-info h3,
+  p {
+    margin: 0;
+ }
+
+ .profile-img .profile-img-post {
+    width: 100%;
+ }
+
+ .icon-heart,
+  .icon-comment,
+   .icon-dm {
+     width: 30px;
+     display: inline-block;
+     margin: 20px 10px 0 0;
+     cursor: pointer;
+ }
+
+ .icon-heart:hover, 
+ .icon-comment:hover, 
+ .icon-dm:hover {
+   opacity : 0.7;
+ }
+ .likes {
+    margin: 13px 0;
+    font-size: 13px;
+    font-weight: 700;
+ }
+
+ .likes-info {
+   padding: 0 10px;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+ }
+
+ span {
+    font-weight: 700;
+    font-size: 13px;
+ }
+
+ /*
+ typography
+ */
+
+
+ h3 {
+    font-size: 13px;
+    font-weight: 700;
+ }
+
+ p {
+    font-size: 12px;
+    font-weight: 400;
+ }
+
