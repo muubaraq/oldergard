@@ -28,16 +28,15 @@ const posts = [
     }
 ]
 
- let containerEl = document.getElementById("container-el");
- let heartEl = document.getElementById("heart-el");
- let likeEl = document.querySelector("likes-el");
+
+ let containerEl = document.getElementById("container-el")
+ 
 
 
- // loop through posts array and render each post
+ //loop through posts array and render each post
     
  let renderPosts = () => {
- 
-    for (let i = 0; i < posts.length; i++) { 
+        for (let i = 0; i < posts.length; i++) {
         let postEl = ""
         postEl += `
         
@@ -55,22 +54,65 @@ const posts = [
            <img src="${posts[i].post}" alt="profile-img" class="profile-img-post">
            <div class="likes-info">
            <div class="icons">
-           <img src="images/icon-heart.png" alt="icon-heart" class="icon-heart" id="heart-el">
-           <img src="images/icon-comment.png" alt="icon-heart" class="icon-comment">
-           <img src="images/icon-dm.png" alt="icon-heart" class="icon-dm">
-           <p class="likes" id="likes-el">${posts[i].likes} likes</p>
+           <i class="bi bi-heart-fill icon-heart text-muted" id="heart-el"></i>
+            <i class="bi bi-chat icon-comment text-muted"></i>
+            <i class="bi bi-send icon-dm text-muted"></i>
+           <p class="likes" id="${i}">${posts[i].likes} likes</p>
            </div>
            <p><span>${posts[i].username}</span> ${posts[i].comment}</p>
            </div>
        </div>
     </div>
         `
-
-        containerEl.innerHTML += postEl;
+        
+        containerEl.innerHTML += postEl
+        
     }
-
 }
-   
 renderPosts();
 
 
+
+// increase the likes by 1
+ count = 0
+ const postContainers = document.querySelectorAll(`.post`)
+ postContainers.forEach((postContainer) => {
+    const heart = postContainer.querySelector(`.icon-heart`)
+    const likes = postContainer.querySelector(`.likes`)
+
+    heart.addEventListener(`click`, () => {
+        postContainers.forEach((item) => {
+            if(item !== postContainer) {
+                count = 0
+            }
+        })
+
+        heart.classList.toggle(`clicked`)
+        if(heart.classList.contains(`clicked`)) {
+            count++
+            const newLike = posts[likes.id].likes + count
+            likes.innerHTML = `${newLike} likes`
+            console.log(likes)
+        } else {
+            count--
+            const newLike = posts[likes.id].likes + count + 1
+            likes.innerHTML = `${newLike} likes`
+        }
+    })
+ })
+
+
+ // change the heart color when clicked
+
+ const heartEl = document.querySelectorAll(`.bi-heart-fill`);
+
+heartEl.forEach(function (hearts) {
+  hearts.addEventListener(`click`, function (e) {
+    const liked = e.currentTarget;
+    if (liked.classList.contains(`text-muted`)) {
+      liked.classList.remove(`text-muted`);
+    } else {
+      liked.classList.add(`text-muted`);
+    }
+  });
+});
